@@ -1,0 +1,21 @@
+{
+    "name": "toanpp98/php-redis-lock",
+    "description": "Access synchronization mechanism.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RedisLock\\": "src/RedisLock/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Toan Pham Phu",
+            "email": "phamphutoan98@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-redis": "*"
+    }
+}
