@@ -8,7 +8,10 @@ class RedisLock
 {
     const SLEEP_TIME = 1;
 
-    private static RedisLock $instance;
+    /**
+     * @var RedisLock[] $instances
+     */
+    private static array $instances;
 
     private Redis $redisClient;
 
@@ -25,11 +28,12 @@ class RedisLock
 
     public static function getInstance(string $host, int $port): RedisLock
     {
-        if (!isset(self::$instance)) {
-            self::$instance = new RedisLock($host, $port);
+        $index = "$host:$port";
+        if (!isset(self::$instances[$index])) {
+            self::$instances[$index] = new RedisLock($host, $port);
         }
 
-        return self::$instance;
+        return self::$instances[$index];
     }
 
     public function acquire(string $key, string $type = null)
