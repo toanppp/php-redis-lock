@@ -3,6 +3,12 @@
 ## About
 Access synchronization mechanism.
 
+## Installation
+
+```shell
+composer require toanppp/php-redis-lock
+```
+
 ## Methods
 
 ### RedisLock :: getInstance ( `string` host, `int` port )
